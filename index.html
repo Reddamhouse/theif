@@ -6,9 +6,13 @@
     <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-<video src="scene2.mp4" playsinline poster="loader.gif" id="bgvid">
+<video src="scene2.mp4" playsinline poster="loader.gif" id="scene1">
     Sorry, your browser doesn't support embedded videos.
 </video>
+<video src="scene3.mp4" playsinline  id="scene2">
+    Sorry, your browser doesn't support embedded videos.
+</video>
+
 
 <!--<video src="scene2.mp4" autoplay playsinline loop id="bgvid">-->
 <!--Sorry, your browser doesn't support embedded videos.-->
@@ -16,12 +20,16 @@
 
 <script>
 
-    var scene1 = document.getElementById('bgvid');
+    var scene1 = document.getElementById('scene1');
     scene1.oncanplaythrough = function () {
         setTimeout(function () {
                     scene1.play();
                 }, 5000
         )
+    };
+
+    scene1.onended = function() {
+        alert("The video has ended");
     };
 
 </script>
