@@ -1,6 +1,6 @@
 var scene;
 function setup() {
-    createCanvas(displayWidth, displayHeight);
+    createCanvas(windowWidth, windowHeight);
     scene = createVideo('scene2.mp4');
     scene.play(); // set the video to loop and start playing
     scene.hide();
