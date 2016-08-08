@@ -1,4 +1,4 @@
-video#bgvid {
+body > video {
     position: fixed;
     top: 50%;
     left: 50%;
