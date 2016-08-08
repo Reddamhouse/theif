@@ -8,5 +8,5 @@ function setup() {
 
 
 function draw() {
-    // image(scene); // draw a second copy to canvas
+    image(scene); // draw a second copy to canvas
 }
