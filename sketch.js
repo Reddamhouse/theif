@@ -9,4 +9,8 @@ function setup() {
 
 function draw() {
     image(scene); // draw a second copy to canvas
+    scene.onended(
+        alert("DF")
+
+    )
 }
