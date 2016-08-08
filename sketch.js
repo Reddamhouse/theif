@@ -4,7 +4,6 @@ function setup() {
     scene = createVideo('scene2.mp4');
     scene.size(windowWidth, windowHeight);
     scene.play(); // set the video to loop and start playing
-    scene.hide();
 }
 
 
