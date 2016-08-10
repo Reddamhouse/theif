@@ -45,7 +45,6 @@ function scene2playf() {
     scene2.size(displayWidth, displayHeight);
     scene2.play();
     clear();
-    remove();
     scene1ended = false;
 
 }
