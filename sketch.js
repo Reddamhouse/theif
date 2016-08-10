@@ -1,7 +1,8 @@
 var scene;
 var scene1ended = false;
 var scene2;
-scene2play = false;
+scene2play = true;
+var removeOptions1 = false;
 
 
 function setup() {
@@ -10,16 +11,18 @@ function setup() {
     scene.size(displayWidth, displayHeight);
     scene.play(); // set the video to loop and start playing
     scene.onended(scene1end);
-    // scene.noLoop();
+    noLoop();
 
 
 }
 
 function draw() {
-    if (scene1ended) {
+    if(scene1ended) {
+        rect(displayWidth / 2, displayHeight / 2, 55, 55);
+        rect(displayWidth / 2 + 70, displayHeight / 2, 55, 55);
         if (mouseX >= displayWidth / 2 && mouseX <= displayWidth / 2 + 55 && mouseY >= displayHeight / 2 && mouseY <= displayHeight / 2 + 55) {
-            scene2play = true;
-            console.log(scene2play)
+            console.log(scene2play);
+            scene2playf();
         }
         if (mouseX >= displayWidth / 2 + 70 && mouseX <= displayWidth / 2 + 55 + 70 && mouseY >= displayHeight / 2 && mouseY <= displayHeight / 2 + 55) {
             console.log(scene2play)
@@ -31,16 +34,19 @@ function scene1end() {
     scene1ended = true;
     // check if mouse is inside the rectangle
     // mouseX >= x && mouseX <= x+width && mouseY >= y && mouseY <= y+height
-    rect(displayWidth / 2, displayHeight / 2, 55, 55);
-    rect(displayWidth / 2 + 70, displayHeight / 2, 55, 55);
+    redraw();
 }
-
-if (scene2play) {
-    scene.stop();
-    scene.noLoop();
+function mousePressed() {
+    redraw(2);
+}
+function scene2playf() {
     console.log("Scene 2");
     scene2 = createVideo('scene3.mp4');
     scene2.size(displayWidth, displayHeight);
     scene2.play();
+    clear();
+    remove();
+    scene1ended = false;
+
 }
 
