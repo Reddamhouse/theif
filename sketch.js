@@ -9,7 +9,6 @@ function setup() {
     createCanvas(displayWidth, displayHeight);
     scene = createVideo('scene2.mp4');
     scene.size(displayWidth, displayHeight);
-    scene.play(); // set the video to loop and start playing
     scene.onended(scene1end);
     noLoop();
 
@@ -28,6 +27,12 @@ function draw() {
             console.log(scene2play)
         }
     }
+}
+
+function keyPressed() {
+
+    scene.play(); // set the video to loop and start playing
+
 }
 function scene1end() {
     console.log("Scene 1 ");
