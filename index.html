@@ -1,44 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+<html>
+  <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
-    <script language="javascript" src="libraries/p5.dom.js"></script>
-    <script language="javascript" type="text/javascript" src="sketch.js"></script>
-</head>
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
+  </body>
 
-<body>
-
-<!--<video src="scene2.mp4" playsinline poster="loader.gif" id="scene1">-->
-    <!--Sorry, your browser doesn't support embedded videos.-->
-<!--</video>-->
-
-<!--<video src="scene3.mp4" playsinline id="scene2">-->
-    <!--Sorry, your browser doesn't support embedded videos.-->
-<!--</video>-->
-
-
-<!--<video src="scene2.mp4"  playsinline loop id="bgvid">-->
-<!--Sorry, your browser doesn't support embedded videos.-->
-<!--</video>-->
-
-<!--<script>-->
-
-    <!--var scene1 = document.getElementById('scene1');-->
-    <!--scene1.oncanplaythrough = function () {-->
-        <!--setTimeout(function () {-->
-                    <!--scene1.play();-->
-                <!--}, 5000-->
-        <!--)-->
-    <!--};-->
-
-    <!--scene1.onended = function () {-->
-        <!--alert("The video has ended");-->
-    <!--};-->
-
-<!--</script>-->
-
-</body>
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
 </html>
