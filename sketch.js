@@ -2,18 +2,27 @@ var scene;
 var scene1ended = false;
 var scene2;
 var scene3;
+var evor;
 scene2play = true;
 var removeOptions1 = false;
 
+function preload() {
+    evor = loadFont("assets/Evogria.otf");
+
+}
 
 function setup() {
+
     createCanvas(displayWidth, displayHeight);
-    scene = createVideo('scene1.mp4');
+    scene = createVideo('assets/scene1.mp4');
     scene.size(displayWidth, displayHeight);
     scene.onended(scene1end);
     noLoop();
 
-
+    // BEGINNING TEXT
+    fill(255, 255, 255).strokeWeight(0).textSize(400);
+    textFont(evor);
+    text("Thief", 500, 500);
 }
 
 function draw() {
@@ -60,7 +69,7 @@ function mousePressed() {
 }
 function scene1opt1() {
     console.log("Scene 2");
-    scene2 = createVideo('scene1option1.mp4');
+    scene2 = createVideo('assets/scene1option1.mp4');
     scene2.size(displayWidth, displayHeight);
     scene2.play();
     clear();
@@ -70,7 +79,7 @@ function scene1opt1() {
 
 function scene1opt2() {
     console.log("Scene 3");
-    scene3 = createVideo('scene1option2.mp4');
+    scene3 = createVideo('assets/scene1option2.mp4');
     scene3.size(displayWidth, displayHeight);
     scene3.play();
     clear();
