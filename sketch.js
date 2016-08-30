@@ -46,13 +46,13 @@ function draw() {
         rect(displayWidth / 2 + 110, displayHeight / 2, 100, 100); //Make rectangle 2
 
         //TEST FOR MOUSE
-        if (mouseX >= displayWidth / 2 - 210 && mouseX <= displayWidth / 2 + 55 && mouseY >= displayHeight / 2 && mouseY <= displayHeight / 2 + 55) {
+        if (mouseX >= displayWidth / 2 - 110 - 50 && mouseX <= displayWidth / 2 -110 + 50 && mouseY >= displayHeight / 2 -50 && mouseY <= displayHeight / 2 + 50) {
             // console.log(scene1opt1);
             scene1opt1();
         }
 
 
-        if (mouseX >= displayWidth / 2 + 70 && mouseX <= displayWidth / 2 + 55 + 70 && mouseY >= displayHeight / 2 && mouseY <= displayHeight / 2 + 55) {
+        if (mouseX >= displayWidth / 2 + +110 -50 && mouseX <= displayWidth / 2 + 110 + 50 && mouseY >= displayHeight / 2 - 50 && mouseY <= displayHeight / 2 + 50) {
             // console.log(scenplay)
             scene1opt2();
         }
