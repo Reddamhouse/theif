@@ -5,6 +5,7 @@ var scene3;
 var evor;
 scene2play = true;
 var removeOptions1 = false;
+var gamestarted = false;
 
 function preload() {
     evor = loadFont("assets/Evogria.otf");
@@ -19,13 +20,22 @@ function setup() {
     scene.onended(scene1end);
     noLoop();
 
-    // BEGINNING TEXT
-    fill(255, 255, 255).strokeWeight(0).textSize(400);
-    textFont(evor);
-    text("Thief", 500, 500);
+
 }
 
 function draw() {
+
+    if(gamestarted == false) {
+        // BEGINNING TEXT
+        fill(0, 255, 255).strokeWeight(0).textSize(400);
+        textFont(evor);
+        textAlign(CENTER);
+        text("Thief", displayWidth/2, displayHeight/2.5);
+        textSize(50);
+        text("An interactive film experience", displayWidth/2, displayHeight/2.1);
+        text("PRESS ANY KEY TO START", displayWidth/2, displayHeight/1.2);
+    }
+
     if(scene1ended) { //ONLY SHOW IF SCENE1 IS ENDED. SCENE1ENDED VAR STARTS AGAIN ON CHOICE TO DELETE
 
         //OPTION 1
@@ -50,8 +60,11 @@ function draw() {
 }
 
 function keyPressed() {
-
-    scene.play(); // set the video to loop and start playing
+   if(!gamestarted) {
+       gamestarted = true;
+       scene.play(); // set the video to loop and start playing
+       clear();
+   }
 
     if (keyCode == UP_ARROW) {
         skip();
