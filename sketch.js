@@ -27,7 +27,7 @@ function draw() {
 
     if(gamestarted == false) {
         // BEGINNING TEXT
-        fill(0, 255, 255).strokeWeight(0).textSize(400);
+        fill(255, 255, 255).strokeWeight(0).textSize(400);
         textFont(evor);
         textAlign(CENTER);
         text("Thief", displayWidth/2, displayHeight/2.5);
@@ -39,10 +39,10 @@ function draw() {
     if(scene1ended) { //ONLY SHOW IF SCENE1 IS ENDED. SCENE1ENDED VAR STARTS AGAIN ON CHOICE TO DELETE
 
         //OPTION 1
-        rect(displayWidth / 2, displayHeight / 2, 55, 55); //Create rec 1
+        rect(displayWidth / 2, displayHeight / 2, 400, 400); //Create rec 1
 
         //OPTION 2
-        rect(displayWidth / 2 + 70, displayHeight / 2, 55, 55); //Make rectangle 2
+        rect(displayWidth / 2 + 100, displayHeight / 2, 400, 400); //Make rectangle 2
 
         //TEST FOR MOUSE
         if (mouseX >= displayWidth / 2 && mouseX <= displayWidth / 2 + 55 && mouseY >= displayHeight / 2 && mouseY <= displayHeight / 2 + 55) {
