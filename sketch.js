@@ -102,7 +102,8 @@ function scene1opt2() {
 }
 
 function skip() {
-    scene.time(40);
+    console.log("skip");
+    scene.time(20);
 }
 
 // function keyPressed()
