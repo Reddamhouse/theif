@@ -38,14 +38,15 @@ function draw() {
 
     if(scene1ended) { //ONLY SHOW IF SCENE1 IS ENDED. SCENE1ENDED VAR STARTS AGAIN ON CHOICE TO DELETE
 
+        rectMode(CENTER);
         //OPTION 1
-        rect(displayWidth / 2, displayHeight / 2, 400, 400); //Create rec 1
+        rect(displayWidth / 2 -110, displayHeight / 2, 100, 100); //Create rec 1
 
         //OPTION 2
-        rect(displayWidth / 2 + 100, displayHeight / 2, 400, 400); //Make rectangle 2
+        rect(displayWidth / 2 + 110, displayHeight / 2, 100, 100); //Make rectangle 2
 
         //TEST FOR MOUSE
-        if (mouseX >= displayWidth / 2 && mouseX <= displayWidth / 2 + 55 && mouseY >= displayHeight / 2 && mouseY <= displayHeight / 2 + 55) {
+        if (mouseX >= displayWidth / 2 - 210 && mouseX <= displayWidth / 2 + 55 && mouseY >= displayHeight / 2 && mouseY <= displayHeight / 2 + 55) {
             // console.log(scene1opt1);
             scene1opt1();
         }
