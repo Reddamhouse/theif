@@ -3,6 +3,10 @@ var scene1ended = false;
 var scene2;
 var scene3;
 var evor;
+
+var scene2opt1;
+var scene2opt1;
+
 scene2play = true;
 var removeOptions1 = false;
 var gamestarted = false;
@@ -15,7 +19,7 @@ function preload() {
 function setup() {
 
     createCanvas(displayWidth, displayHeight);
-    scene = createVideo('assets/scene1.m4v');
+    scene = createVideo('assets/scene1.mp4');
     scene.size(displayWidth, displayHeight);
     scene.onended(scene1end);
     noLoop();
@@ -38,20 +42,20 @@ function draw() {
 
     if(scene1ended) { //ONLY SHOW IF SCENE1 IS ENDED. SCENE1ENDED VAR STARTS AGAIN ON CHOICE TO DELETE
 
-        //OPTION 1
-        rect(displayWidth / 2, displayHeight / 2, 55, 55); //Create rec 1
-
-        //OPTION 2
-        rect(displayWidth / 2 + 70, displayHeight / 2, 55, 55); //Make rectangle 2
+        rectMode(CENTER);
+        //OPTION 1//
+        // //OPTION 2
+        // rect(displayWidth / 2  + 110, displayHeight / 2, 100, 100); //Make rectangle 2
 
         //TEST FOR MOUSE
-        if (mouseX >= displayWidth / 2 - 110 - 50 && mouseX <= displayWidth / 2 -110 + 50 && mouseY >= displayHeight / 2 -50 && mouseY <= displayHeight / 2 + 50) {
+        if (mouseX >= 120 && mouseX <= 600 && mouseY >= 465 && mouseY <= 585) {
             // console.log(scene1opt1);
+            // rect(displayWidth / 2 -110 , displayHeight / 2,100,100);
             scene1opt1();
         }
 
 
-        if (mouseX >= displayWidth / 2 + +110 -50 && mouseX <= displayWidth / 2 + 110 + 50 && mouseY >= displayHeight / 2 - 50 && mouseY <= displayHeight / 2 + 50) {
+        if (mouseX >= 1120 && mouseX <= 1395 && mouseY >= 465 && mouseY <= 585) {
             // console.log(scenplay)
             scene1opt2();
         }
@@ -65,6 +69,7 @@ function keyPressed() {
        scene.play(); // set the video to loop and start playing
        clear();
    }
+   console.log(mouseX, mouseY, displayWidth, displayHeight);
 
     if (keyCode == UP_ARROW) {
         skip();
@@ -97,6 +102,14 @@ function scene1opt2() {
     scene3.play();
     clear();
     scene1ended = false;
+
+}
+
+function scene2opt1(){
+
+}
+
+function scene2op2() {
 
 }
 
