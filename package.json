@@ -4,9 +4,9 @@
   "description": "An interactive film experience",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-packager . thief --ignore=node_modules/electron-* --platform=win32 --arch=x64",
-    "archive" : "asar pack thief-win32-x64/resources/app thief-win32-x64/resources/app.asar"
+    "postinstall": "install-app-deps",
+    "pack": "build --dir",
+    "dist": "build --osx --x64"
   },
   "repository": {
     "type": "git",
@@ -18,15 +18,31 @@
     "start",
     "tutorial"
   ],
-  "author": "GitHub",
+  "author": "Manu Masson",
   "license": "CC0-1.0",
-  "bugs": {
-    "url": "https://github.com/electron/electron-quick-start/issues"
-  },
-  "homepage": "https://github.com/electron/electron-quick-start#readme",
+  "homepage": "https://github.com/reddamhouse/thief",
   "devDependencies": {
     "asar": "^0.12.3",
+    "electron-builder": "^6.4.1",
     "electron-packager": "^8.0.0",
     "electron-prebuilt": "^1.2.0"
+  },
+  "build": {
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 220,
+          "type": "file",
+          "path": "computed path to artifact, do not specify it - will be overwritten"
+        }
+      ]
+    }
   }
 }
