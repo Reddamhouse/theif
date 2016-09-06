@@ -75,11 +75,11 @@ function draw() {
     if (scene2opt2ended == true) {
         //TEST FOR MOUSE
         if (touchX >= displayWidth / 13.3565 && touchX <= displayWidth / 2.8927 && touchY >= displayHeight / 2.215 && touchY <= displayHeight / 1.8783) {
-            scene3opt1();
+            scene3opt2();
         }
 
         if (touchX >= displayWidth / 2 && touchX <= displayWidth / 1.05858 && touchY >= displayHeight / 2.215 && touchY <= displayHeight / 1.8783  ) {
-            scene3opt2();
+            scene3opt1();
         }
     }
 }
@@ -173,7 +173,7 @@ function scene2opt1() {
 function scene2opt2() {
     noCursor()
     scene2ended = 3;
-    scene2option2 = createVideo('assets/scene2option22.mp4');
+    scene2option2 = createVideo('assets/scene2option2.mp4');
     scene2option2.size(displayWidth, displayHeight);
     scene2option2.play();
 
@@ -187,7 +187,7 @@ function scene2opt2() {
 
 function scene3opt1() {
     noCursor()
-    scene3ended = 3;
+    scene2opt2ended = 3;
     scene3option1 = createVideo('assets/scene3option1.mp4');
     scene3option1.size(displayWidth, displayHeight);
     scene3option1.play();
@@ -197,7 +197,7 @@ function scene3opt1() {
 
 function scene3opt2() {
     noCursor();
-    scene3ended = 3;
+    scene2opt2ended = 3;
     scene3option2 = createVideo('assets/scene3option2.mp4');
     scene3option2.size(displayWidth, displayHeight);
     scene3option2.play();
@@ -221,7 +221,6 @@ function gameOverf() {
 }
 
 //Skips to decisions
-function skip() {
     if (scene1ended == false) {
         scene.time(50);
         console.log("skip1")

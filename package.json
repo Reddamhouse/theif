@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "pack": "build --dir",
-    "dist": "build --osx --x64"
+    "dist": "build --win --x64",
+	"start" : "electron ."
   },
   "repository": {
     "type": "git",
