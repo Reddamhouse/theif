@@ -173,7 +173,7 @@ function scene2opt1() {
 function scene2opt2() {
     noCursor()
     scene2ended = 3;
-    scene2option2 = createVideo('assets/scene2option2.mp4');
+    scene2option2 = createVideo('assets/scene2option22.mp4');
     scene2option2.size(displayWidth, displayHeight);
     scene2option2.play();
 
@@ -192,7 +192,11 @@ function scene3opt1() {
     scene3option1.size(displayWidth, displayHeight);
     scene3option1.play();
     scene3opt1ended = false; //Just for skip if statemnt
-    scene3option1.onended(gameOverf);
+	 function scene3opt1end() {
+        scene3opt1ended = true;
+        cursor()
+    }
+    scene3option2.onended(scene3opt1end);
 }
 
 function scene3opt2() {
@@ -201,12 +205,7 @@ function scene3opt2() {
     scene3option2 = createVideo('assets/scene3option2.mp4');
     scene3option2.size(displayWidth, displayHeight);
     scene3option2.play();
-    scene3option2.onended(gameOverf);
-    function scene3opt2end() {
-        scene3opt2ended = true;
-        cursor()
-    }
-    scene3option2.onended(scene3opt2end);
+	scene3option2.onended(gameOverf);
 }
 //
 //
@@ -221,6 +220,7 @@ function gameOverf() {
 }
 
 //Skips to decisions
+function skip() {
     if (scene1ended == false) {
         scene.time(50);
         console.log("skip1")
