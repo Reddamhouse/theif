@@ -1,14 +1,16 @@
 {
-  "name": "electron-quick-start",
+  "name": "thief",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "An interactive film experience",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . thief --ignore=node_modules/electron-* --platform=win32 --arch=x64",
+    "archive" : "asar pack thief-win32-x64/resources/app thief-win32-x64/resources/app.asar"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron/electron-quick-start.git"
+    "url": "git+https://github.com/reddamhouse/thief"
   },
   "keywords": [
     "Electron",
@@ -23,6 +25,8 @@
   },
   "homepage": "https://github.com/electron/electron-quick-start#readme",
   "devDependencies": {
+    "asar": "^0.12.3",
+    "electron-packager": "^8.0.0",
     "electron-prebuilt": "^1.2.0"
   }
 }
