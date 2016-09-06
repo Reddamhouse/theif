@@ -31,7 +31,7 @@ function draw() {
 
     if(gamestarted == false) {
         // BEGINNING TEXT
-        fill(0, 255, 255).strokeWeight(0).textSize(400);
+        fill(255, 255, 255).strokeWeight(0).textSize(400);
         textFont(evor);
         textAlign(CENTER);
         text("Thief", displayWidth/2, displayHeight/2.5);
