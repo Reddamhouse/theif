@@ -75,11 +75,11 @@ function draw() {
     if (scene2opt2ended == true) {
         //TEST FOR MOUSE
         if (touchX >= displayWidth / 13.3565 && touchX <= displayWidth / 2.8927 && touchY >= displayHeight / 2.215 && touchY <= displayHeight / 1.8783) {
-            scene3opt2();
+            scene3opt1();
         }
 
         if (touchX >= displayWidth / 2 && touchX <= displayWidth / 1.05858 && touchY >= displayHeight / 2.215 && touchY <= displayHeight / 1.8783  ) {
-            scene3opt1();
+            scene3opt2();
         }
     }
 }
@@ -129,7 +129,7 @@ function scene1(){
         scene1ended = true;
         cursor();
     }
-    scene = createVideo('assets/scene1.mp4');
+    scene = createVideo('assets/opening.mp4');
     scene.size(displayWidth, displayHeight);
     scene.play(); // set the video to loop and start playing
     scene.onended(scene1end);
@@ -139,7 +139,7 @@ function scene1opt1() { //BLACK WIRE, CONTINUES STORY
     //These are the same for each scene function:
     noCursor(); //Remove cursor
     scene1ended = 3; //Sets the var to a val not a bool
-    scene2 = createVideo('assets/scene1option2.mp4'); //Creates and fetches video
+    scene2 = createVideo('assets/decision1option2.mp4'); //Creates and fetches video
     scene2.size(displayWidth, displayHeight); //Setz size
     scene2.play(); //plays it
     scene2ended = false; //Just for skip if statemnt
@@ -155,7 +155,7 @@ function scene1opt1() { //BLACK WIRE, CONTINUES STORY
 function scene1opt2() {
     noCursor();
     scene1ended = 3;
-    scene3 = createVideo('assets/scene1option1.mp4');
+    scene3 = createVideo('assets/decision1option1.mp4');
     scene3.size(displayWidth, displayHeight);
     scene3.play();
     scene3.onended(gameOverf); // Plays game over instead of continuing story
@@ -164,7 +164,7 @@ function scene1opt2() {
 function scene2opt1() {
     noCursor()
     scene2ended = 3;
-    scene2option1 = createVideo('assets/scene2option1.mp4');
+    scene2option1 = createVideo('assets/decision2option1.mp4');
     scene2option1.size(displayWidth, displayHeight);
     scene2option1.play();
     scene2option1.onended(gameOverf);
@@ -173,7 +173,7 @@ function scene2opt1() {
 function scene2opt2() {
     noCursor()
     scene2ended = 3;
-    scene2option2 = createVideo('assets/scene2option22.mp4');
+    scene2option2 = createVideo('assets/decision2option2.mp4');
     scene2option2.size(displayWidth, displayHeight);
     scene2option2.play();
 
@@ -188,7 +188,7 @@ function scene2opt2() {
 function scene3opt1() {
     noCursor()
     scene2opt2ended = 3;
-    scene3option1 = createVideo('assets/scene3option1.mp4');
+    scene3option1 = createVideo('assets/decision3option1.mp4');
     scene3option1.size(displayWidth, displayHeight);
     scene3option1.play();
     scene3opt1ended = false; //Just for skip if statemnt
@@ -202,7 +202,7 @@ function scene3opt1() {
 function scene3opt2() {
     noCursor();
     scene2opt2ended = 3;
-    scene3option2 = createVideo('assets/scene3option2.mp4');
+    scene3option2 = createVideo('assets/decision3option2.mp4');
     scene3option2.size(displayWidth, displayHeight);
     scene3option2.play();
 	scene3option2.onended(gameOverf);
@@ -217,4 +217,19 @@ function gameOverf() {
     gameOver = true;
     redraw();
     cursor();
+}
+function skip() {
+    if (scene1ended == false) {
+        scene.time(50);
+        console.log("skip1")
+    }
+    if (scene2ended == false) {
+        scene2.time(20);
+        console.log("skip2")
+
+    }
+    if(scene2opt2ended == false) {
+        console.log("skip3")
+        scene2option2.time(220);
+    }
 }
