@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "pack": "build --dir",
-    "dist": "build --osx",
+    "dist": "build",
 	"start" : "electron .",
 	"package" : "electron-packager . thief --platform=win32"
   },
