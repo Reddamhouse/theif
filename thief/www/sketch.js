@@ -39,7 +39,7 @@ function draw() {
 
     //DRAWS GAMEOVER TEXT
     if (gameOver == true) {
-        textAlign(CENTER);
+        textAlign(CENTER, BOTTOM);
         textSize(120);
         text("GAME OVER", window.innerWidth / 2, window.innerHeight / 2);
         textSize(37);
