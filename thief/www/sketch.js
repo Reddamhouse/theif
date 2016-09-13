@@ -6,7 +6,7 @@ var scene2;
 var scene3;
 var evor;
 var gameOver = false;
-
+var decision1failed = false, decision2failed = false, decision3failed = false;
 var scene2option1;
 var scene2option2;
 
@@ -17,6 +17,7 @@ var gamestarted = false;
 function preload() { //loads font
     evor = loadFont("assets/Evogria.otf");
 }
+
 
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
@@ -31,15 +32,18 @@ function setup() {
     text("PRESS ANY KEY TO START", window.innerWidth / 2, window.innerHeight / 1.2);
 }
 
+
 function draw() {
 
-    //DRAWS STARTING TEXT
+    //DRAWS STARTING TEX
 
     //DRAWS GAMEOVER TEXT
     if (gameOver == true) {
-        textSize(250);
+        textAlign(CENTER);
+        textSize(120);
         text("GAME OVER", window.innerWidth / 2, window.innerHeight / 2);
-        textSize(80);
+        textSize(37);
+        textAlign(CENTER, TOP);
         text("PRESS ANY KEY TO TRY AGAIN", window.innerWidth / 2, window.innerHeight / 1.5);
     }
 
@@ -85,44 +89,54 @@ function draw() {
     }
 }
 function touchStarted() {
-    redraw();
-    if (!gamestarted) {
-        gamestarted = true;
-        scene1();
-        clear();
-        noCursor();
-    }
-
-    if (gameOver) {
-        window.location.reload(false);
-    }
-
+    keyOrPress()
 }
 function keyPressed() {
-    console.log(touchX,touchY,window.innerWidth, window.innerHeight);
-
+    keyOrPress();
+}
+function keyOrPress () {
+    redraw();
+    // console.log("D")
     if (!gamestarted) {
         gamestarted = true;
         scene1();
         clear();
         noCursor();
     }
-    if (gameOver) {
-        window.location.reload(false);
-    }
 
+    if (gameOver) {
+        if (decision1failed) {
+            gameOver = false;
+            clear();
+            scene1();
+            decision1failed = false;
+        }
+        if (decision2failed) {
+            gameOver = false;
+            clear();
+            scene1opt1();
+            decision2failed = false;
+        }
+
+        if (decision3failed) {
+            gameOver = false;
+            clear();
+            scene2opt2();
+            decision3failed = false;
+        }
+    }
     if (keyCode == UP_ARROW) {
         skip();
     }
 }
-
 //exexcutes draw function to test for mouse
-function mousePressed() {
-    redraw(1);
-}
+// function mousePressed() {
+//     redraw(1);
+// }
 
 //
-//SCENE FUNCTIONS
+//SCENE F
+// UNCTIONS
 //
 
 function scene1(){
@@ -132,11 +146,18 @@ function scene1(){
     }
     scene = createVideo('assets/opening.mp4');
     scene.size(window.innerWidth, window.innerHeight);
+    cursor();
     scene.play(); // set the video to loop and start playing
     scene.onended(scene1end);
-    noLoop();
+    // noLoop();
+
+    if(decision1failed) {
+        scene.time(41);
+        // console.log(scene.time)
+    }
 }
 function scene1opt1() { //BLACK WIRE, CONTINUES STORY
+    console.log("game over")
     //These are the same for each scene function:
     noCursor(); //Remove cursor
     scene1ended = 3; //Sets the var to a val not a bool
@@ -144,7 +165,10 @@ function scene1opt1() { //BLACK WIRE, CONTINUES STORY
     scene2.size(window.innerWidth, window.innerHeight); //Setz size
     scene2.play(); //plays it
     scene2ended = false; //Just for skip if statemnt
-
+    if(decision2failed) {
+        scene2.time(11);
+        // console.log(scene.time)
+    }
     function scene2end() { //func
         scene2ended = true;
         cursor();
@@ -159,6 +183,7 @@ function scene1opt2() {
     scene3 = createVideo('assets/decision1option1.mp4');
     scene3.size(window.innerWidth, window.innerHeight);
     scene3.play();
+    decision1failed = true;
     scene3.onended(gameOverf); // Plays game over instead of continuing story
 }
 
@@ -168,6 +193,7 @@ function scene2opt1() {
     scene2option1 = createVideo('assets/decision2option1.mp4');
     scene2option1.size(window.innerWidth, window.innerHeight);
     scene2option1.play();
+    decision2failed = true;
     scene2option1.onended(gameOverf);
 }
 
@@ -182,6 +208,10 @@ function scene2opt2() {
         scene2opt2ended = true;
         cursor()
     }
+    if(decision3failed) {
+        scene2option2.time(220);
+        // console.log(scene.time)
+    }
     scene2opt2ended = false; //Just for skip if statemnt
     scene2option2.onended(scene2opt2end);
 }
@@ -194,10 +224,10 @@ function scene3opt1() {
     scene3option1.play();
     scene3opt1ended = false; //Just for skip if statemnt
     function scene3opt1end() {
-        scene3opt1ended = true;
+        window.location.reload(false);
         cursor()
     }
-    scene3option2.onended(scene3opt1end);
+    scene3option1.onended(scene3opt1end);
 }
 
 function scene3opt2() {
@@ -206,6 +236,7 @@ function scene3opt2() {
     scene3option2 = createVideo('assets/decision3option2.mp4');
     scene3option2.size(window.innerWidth, window.innerHeight);
     scene3option2.play();
+    decision3failed = true;
     scene3option2.onended(gameOverf);
 }
 //
@@ -225,12 +256,12 @@ function skip() {
         console.log("skip1")
     }
     if (scene2ended == false) {
-        scene2.time(20);
+        scene2.time(11);
         console.log("skip2")
 
     }
     if(scene2opt2ended == false) {
-        console.log("skip3")
+        console.log("skip3");
         scene2option2.time(220);
     }
 }

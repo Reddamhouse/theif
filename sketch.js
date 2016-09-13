@@ -246,18 +246,18 @@ function gameOverf() {
     redraw();
     cursor();
 }
-function skip() {
-    if (scene1ended == false) {
-        scene.time(50);
-        console.log("skip1")
-    }
-    if (scene2ended == false) {
-        scene2.time(11);
-        console.log("skip2")
-
-    }
-    if(scene2opt2ended == false) {
-        console.log("skip3")
-        scene2option2.time(220);
-    }
-}
+// function skip() {
+//     if (scene1ended == false) {
+//         scene.time(50);
+//         console.log("skip1")
+//     }
+//     if (scene2ended == false) {
+//         scene2.time(11);
+//         console.log("skip2")
+//
+//     }
+//     if(scene2opt2ended == false) {
+//         console.log("skip3");
+//         scene2option2.time(220);
+//     }
+// }
